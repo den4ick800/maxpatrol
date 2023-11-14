@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %} Maxpatrol {% endblock %}
+
+{% block info %}
+
+    Found info:<br>
+    {% if found_info %}
+        {% for a in found_info %}
+            <a> Operation system: {{a.operation_system}}</a><br>
+            <a> Version: {{a.version}}</a><br>
+            <a>Architecture: {{a.architecture}}</a><br>
+            <a>Log history:<br></a>
+            <a>{{a.log_history | linebreaksbr}}</a><br>
+            <br>
+        {% endfor %}
+    {% else %}
+        Info was not found
+    {% endif %}
+
+{% endblock %}
